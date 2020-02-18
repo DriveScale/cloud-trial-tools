@@ -742,6 +742,12 @@ def create_or_expand_domain(args):
         print('New instances cannot be created.')
         return 1
 
+    if not domain.images.have_all_images():
+        print('ERROR: Cannot find DriveScale AMIs.  You may have registered')
+        print('an incorrect AWS account ID or your trial period may have')
+        print('expired.')
+        return 1
+
     dms_instance = domain.find_or_create_dms()
     servers = domain.create_workers(args.servers)
 
