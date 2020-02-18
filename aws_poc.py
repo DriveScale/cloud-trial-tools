@@ -721,6 +721,7 @@ access.
 """)
         fatal("Cannot continue without AWS credentials.")
 
+
 def create_or_expand_domain(args):
     """Allocate resources for a DriveScale domain.
 
