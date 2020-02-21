@@ -1268,7 +1268,7 @@ Unable to locate AWS API credentials.
 
 These consist of the aws_access_key_id and aws_secret_access_key and are
 typically placed in ~/.aws/credentials:
-""" +  CREDENTIALS_COMMON_TEXT)
+""" + CREDENTIALS_COMMON_TEXT)
         print("Cannot continue without AWS credentials.  Exiting.")
         rv = 1
     if rv:
