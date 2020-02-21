@@ -1027,6 +1027,11 @@ def create_default_key_pair(args):
             return
         raise
 
+    try:
+        os.makedirs(expanduser('~/.ssh'))
+    except Exception:
+        pass
+
     key_contents = response['KeyMaterial']
     written_to = None
     try:
@@ -1037,6 +1042,8 @@ def create_default_key_pair(args):
                 fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
             except FileExistsError:
                 continue
+            except Exception:
+                break
             with os.fdopen(fd, 'w') as f:
                 f.write(key_contents)
             written_to = path
